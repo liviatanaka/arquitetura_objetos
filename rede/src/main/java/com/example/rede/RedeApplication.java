@@ -1,15 +1,13 @@
-package entregas.arqobj.entrega2;
+package com.example.rede;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Entrega2Application {
+public class RedeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Entrega2Application.class, args);
+		SpringApplication.run(RedeApplication.class, args);
 	}
 
 }
-
-
