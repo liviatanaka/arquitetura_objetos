@@ -1,4 +1,4 @@
-package com.example.rede;
+package com.entregas.rede;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

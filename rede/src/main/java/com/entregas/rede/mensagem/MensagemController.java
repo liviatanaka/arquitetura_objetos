@@ -1,31 +1,27 @@
-package com.example.rede.mensagem;
+package com.entregas.rede.mensagem;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-
-
-
 @RestController
 public class MensagemController {
 
-
     @Autowired
-    MensagemService mensagemService;
+    private MensagemService mensagemService;
 
     // GET /mensagem -> Listar todas as mensagens
     @GetMapping("/mensagem")
-    public List<Mensagem> getMensagens(){
-        return mensagemService.listarMensagens();
+    public List<Mensagem> getMensagens() {
+        return mensagemService.listaMensagens();
     }
 
-    // POST /mensagemText -> Criar uma mensagem, verificar se o usuário dono da mensagem existe.
+    // POST /mensagemText - Criar uma mensagem, verificar se o usuário dono da mensagem existe.
     @PostMapping("/mensagemText")
-    public MensagemTexto postMensagemText(@RequestBody MensagemTexto mensagemTexto){
-        return mensagemService.salvarMensagemTexto(mensagemTexto);
+    public MensagemTexto postMensagemText(@RequestBody MensagemTexto mensagem) {
+        return mensagemService.salvarMensagemTexto(mensagem);
     }
 
     // POST /mensagemArquivo -> Criar uma mensagem, verificar se o usuário dono da mensagem existe.
@@ -34,20 +30,18 @@ public class MensagemController {
         return mensagemService.salvarMensagemArquivo(mensagemArquivo);
     }
 
-    // GET /mensagem -> Listar todas as mensagens cadastradas
 
     // GET /mensagem/{mensagemId} -> Recuperar uma mensagem específica
     @GetMapping("/mensagem/{mensagemId}")
-    @ResponseBody
-    public Mensagem getMensagemId(@PathVariable String mensagemId){
-        return mensagemService.buscarMensagemId(mensagemId);
+    public Mensagem getMensagemPorId(@PathVariable String mensagemId) {
+        return mensagemService.getMensagem(mensagemId);
     }
 
     // GET /mensagem/{userId}/user -> Listar todas as mensagens de um usuário
     @GetMapping("/mensagem/{userId}/user")
     @ResponseBody
-    public List<Mensagem> getMensagemUsuario(@PathVariable String userId){
-        return mensagemService.buscarMensagemUsuarioId(userId);
+    public List<Mensagem> listarMensagensPorUsuario(@PathVariable String userId) {
+        return mensagemService.getMensagensPorUsuario(userId);
     }
 
 }

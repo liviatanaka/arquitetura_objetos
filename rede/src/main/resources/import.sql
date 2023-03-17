@@ -1,0 +1,3 @@
+-- INSERT INTO mensagem(identifier, name, stadium) VALUES('palmeiras', 'Sociedade Esportiva Palmeiras', 'Allianz Parque');
+-- INSERT INTO usuario(nome, idade, identifier) VALUES ( 'nicholas', 21, 'koi' );
+-- INSERT INTO mensagem(texto, usuario_idt, titulo) VALUES ( 'oi', 'koi', 'sim' );
