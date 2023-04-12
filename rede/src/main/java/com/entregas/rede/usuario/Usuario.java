@@ -17,7 +17,7 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String idade;
+    private Integer idade;
     private String identifier;
 
     @JsonIgnore
